@@ -1,0 +1,107 @@
+@import '../../../styles/variables';
+
+.movie {
+  &-info {
+    display: flex;
+    gap: 0 40px;
+
+    .poster {
+      width: 400px;
+
+      img {
+        border-radius: 5px;
+        height: auto;
+        max-width: 100%;
+      }
+    }
+
+    .details {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .description {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 20px;
+      margin-top: 30px;
+      width: 100%;
+
+      .genre {
+        text-transform: capitalize;
+      }
+      .release {
+        border: 2px solid $black;
+        border-radius: 3px;
+        padding: 5px 10px;
+      }
+    }
+  }
+  &-overview {
+    margin-top: 30px;
+  }
+
+  &-wrapper {
+    border-radius: 5px;
+    padding: 20px 15px;
+
+    .genre {
+      background: $black;
+      border-radius: 3px;
+      padding: 5px 10px;
+    }
+    .message {
+      margin-top: 15px;
+    }
+
+    &.action {
+      background: $action;
+
+      .genre,
+      .release,
+      .message,
+      h2,
+      p {
+        color: $black;
+        font-family: $font-family-action;
+      }
+      .genre {
+        color: $action;
+      }
+    }
+    &.horror {
+      background: $horror;
+
+      .genre,
+      .release,
+      .message,
+      h2,
+      p {
+        color: $white;
+        font-family: $font-family-horror;
+        font-weight: 700;
+      }
+      .genre {
+        color: $horror;
+      }
+    }
+    &.animated {
+      background: $animated;
+
+      .genre,
+      .release,
+      .message,
+      h2,
+      p {
+        color: $primary;
+        font-family: $font-family-animated;
+      }
+
+      .genre {
+        color: $animated;
+      }
+    }
+  }
+}

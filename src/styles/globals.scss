@@ -1,0 +1,60 @@
+@import '../styles/variables';
+
+body {
+  background: $light-gray;
+  color: $primary-black;
+  font-family: $font-family;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+a,
+span,
+p {
+  box-sizing: border-box;
+}
+
+a {
+  color: $primary;
+}
+
+h1,
+h2,
+a,
+span,
+p,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: $container-width;
+}
+
+.main {
+  padding-top: 40px;
+}
+
+.rating {
+  &.card {
+    border-radius: 5px;
+    color: $white;
+    display: inline-block;
+    padding: 5px 10px;
+    width: auto;
+  }
+  &.average {
+    background: $orange;
+  }
+  &.high {
+    background: $green;
+  }
+}

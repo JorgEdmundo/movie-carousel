@@ -1,0 +1,53 @@
+@import '../../../styles/variables';
+
+.btn {
+  border: 1px solid $white;
+  border-radius: 2px;
+  background: $white;
+  box-shadow: $shadow-many;
+  color: $primary;
+  cursor: pointer;
+  font-weight: bold;
+  height: 36px;
+  min-width: 126px;
+  padding: 10px 16px;
+  text-transform: uppercase;
+
+  &:hover {
+    background: $primary;
+    border: 1px solid $white;
+    color: $white;
+  }
+
+  &.btn-action {
+    background: $white;
+    border: 1px solid $white;
+    color: $black;
+
+    &:hover {
+      background: $black;
+      border: 1px solid $black;
+      color: $action;
+    }
+  }
+  &.btn-horror {
+    background: $black;
+    border: 1px solid $black;
+    color: $horror;
+
+    &:hover {
+      color: $white;
+    }
+  }
+  &.btn-animated {
+    background: $white;
+    border: 1px solid $white;
+    color: $black;
+
+    &:hover {
+      background: $black;
+      border: 1px solid $black;
+      color: $animated;
+    }
+  }
+}
