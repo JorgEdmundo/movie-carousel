@@ -1,3 +1,4 @@
+@import '../../../styles/mixins';
 @import '../../../styles/variables';
 
 .wishlist {
@@ -10,6 +11,19 @@
     gap: 30px 0;
     justify-content: flex-start;
     margin-top: 40px;
+
+    @include for-mobile-only {
+      .movie-card {
+        margin: 0 auto;
+        width: 320px;
+        .image {
+          height: auto;
+          img {
+            max-width: 100%;
+          }
+        }
+      }
+    }
   }
   p {
     margin-left: 40px;

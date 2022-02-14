@@ -20,3 +20,13 @@ $font-family: 'Helvetica';
 $font-family-action: Arial, sans-serif;
 $font-family-horror: 'Courier New', monospace;
 $font-family-animated: 'Trebuchet MS', sans-serif;
+
+// Breakpoints
+$breakpoints: (
+  'tablet': (
+    min-width: 600px,
+  ),
+  'desktop': (
+    min-width: 1200px,
+  ),
+) !default;

@@ -61,7 +61,7 @@ function MovieSingle({ movie }) {
                 <span>{`${vote_average} / 10`}</span>
               </div>
               <div className="release">
-                <span>Release: {release_date}</span>
+                <span>{release_date}</span>
               </div>
               <div className="btn-wishlist">
                 <Button variant={theme} handleClick={addToWishlist}>
