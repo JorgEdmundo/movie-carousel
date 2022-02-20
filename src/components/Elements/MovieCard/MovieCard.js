@@ -3,13 +3,15 @@ import React, { useContext } from 'react';
 import { NavigationContext } from '../../../context/NavigationContext';
 import { ThemeContext } from '../../../context/ThemeContext';
 
+import { getRatingLevel } from '../../../Helpers/constants';
+
 import './movieCard.scss';
 
 function MovieCard({ poster, title, releaseDate, rating, genre, movieId }) {
   const { setPage, setMovieId } = useContext(NavigationContext);
   const { setTheme } = useContext(ThemeContext);
 
-  const ratingLevel = rating > 6.5 ? 'high' : 'average';
+  const ratingLevel = getRatingLevel(rating);
 
   const goToSingle = () => {
     setPage('movie');

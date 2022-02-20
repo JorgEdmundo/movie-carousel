@@ -4,6 +4,7 @@ import Button from '../../Elements/Button/Button';
 
 import { ThemeContext } from '../../../context/ThemeContext';
 import { getWishlist } from '../../../Helpers/common';
+import { getRatingLevel } from '../../../Helpers/constants';
 
 import './movieSingle.scss';
 
@@ -40,7 +41,7 @@ function MovieSingle({ movie }) {
     }
   };
 
-  const ratingLevel = vote_average > 6.5 ? 'high' : 'average';
+  const ratingLevel = getRatingLevel(vote_average);
 
   return (
     <div className="movie-container container">
