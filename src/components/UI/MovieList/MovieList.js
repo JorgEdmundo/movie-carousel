@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 
 import Carousel from '../Carousel/Carousel';
 
-import './movieList.scss';
+import { getMoviesByCategories } from '../../../Helpers/dataCalls';
+import { KEY, movieCategories } from '../../../Helpers/constants';
 
-const KEY = process.env.TMDB_KEY;
+import './movieList.scss';
 
 function ListCampaign() {
   const [actionMovies, setActionMovies] = useState([]);
@@ -12,29 +13,25 @@ function ListCampaign() {
   const [animatedMovies, setAnimatedMovies] = useState([]);
 
   useEffect(() => {
-    const moviesPromises = [28, 16, 27].map((genre) =>
-      fetch(
-        `https://api.themoviedb.org/3/discover/movie?api_key=${KEY}&with_genres=${genre}`,
-      ).then((res) => res.json()),
+    getMoviesByCategories(KEY, movieCategories).then(
+      ([action, animated, horror]) => {
+        setActionMovies(action.results);
+        setAnimatedMovies(animated.results);
+        setHorrorMovies(horror.results);
+
+        const allMovies = [
+          ...action.results,
+          ...animated.results,
+          ...horror.results,
+        ];
+
+        if (allMovies.length) {
+          localStorage.setItem('allMovies', JSON.stringify(allMovies));
+        }
+      },
     );
-    Promise.all(moviesPromises).then((dataSets) => {
-      const [action, animated, horror] = dataSets;
-
-      setActionMovies(action.results);
-      setAnimatedMovies(animated.results);
-      setHorrorMovies(horror.results);
-
-      const allMovies = [
-        ...action.results,
-        ...animated.results,
-        ...horror.results,
-      ];
-
-      if (allMovies.length) {
-        localStorage.setItem('allMovies', JSON.stringify(allMovies));
-      }
-    });
   }, []);
+
   return (
     <>
       <div className="categories container">
